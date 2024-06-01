@@ -11,10 +11,10 @@
 - 丰富的角色选择，选择适合自己的角色
 - 丰富的装备和技能，提升战斗能力
 
-### unity版本 2022.3.22f1c1
+### unity版本 
 *** 
 ### 打开方式
 - `git clone https://github.com/Stew0316/tower.git`
 - 打开unity hub
-- 安装对应版本
+- 安装对应版本([Unity 2022.3.22f1c1](https://unity.com/cn/releases/editor/whats-new/2022.3.22))
 - 点击Assets里的.unity文件即可打开场景编辑

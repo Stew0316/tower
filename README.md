@@ -11,7 +11,6 @@
 - 丰富的角色选择，选择适合自己的角色
 - 丰富的装备和技能，提升战斗能力
 
-### unity版本 
 *** 
 ### 打开方式
 - `git clone https://github.com/Stew0316/tower.git`

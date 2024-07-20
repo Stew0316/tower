@@ -22,4 +22,8 @@ public class Hero : MonoBehaviour
         Vector2 movement = new Vector2(moveX, moveY) * speed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + movement);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("hero enter");
+    }
 }

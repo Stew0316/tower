@@ -6,6 +6,8 @@ public class Hero : MonoBehaviour
 {
     public float speed = 5f; // 移动速度
     private Rigidbody2D rb;
+    public bool moveDisabled = false;
+    public Vector2 movement;
 
     void Start()
     {
@@ -19,11 +21,22 @@ public class Hero : MonoBehaviour
         float moveY = Input.GetAxis("Vertical");
 
         // 计算移动量
-        Vector2 movement = new Vector2(moveX, moveY) * speed * Time.fixedDeltaTime;
-        rb.MovePosition(rb.position + movement);
+        movement = new Vector2(moveX, moveY) * speed * Time.fixedDeltaTime;
+        //Debug.Log($"{movement}, {movement[0]}, {movement[1]}");
+        if(!moveDisabled)
+        {
+            rb.MovePosition(rb.position + movement);
+        }
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("hero enter");
+        moveDisabled = true;
+        Debug.Log($"hero enter {collision.bounds}");
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        moveDisabled = false;
+        Debug.Log("hero exit");
     }
 }

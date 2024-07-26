@@ -15,5 +15,8 @@ public class BaseBoundary : MonoBehaviour
     {
         
     }
-    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("colllllllll");
+    }
 }

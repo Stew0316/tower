@@ -37,6 +37,7 @@ public class Hero : MonoBehaviour
         //{
         //    rb.MovePosition(rb.position + movement);
         //}
+        if (Global.Instance.isPaused) return;
         float h = Input.GetAxisRaw("Horizontal");
         transform.Translate(Vector3.right * h * speed * Time.deltaTime, Space.World);
         if(h<0)
@@ -60,16 +61,6 @@ public class Hero : MonoBehaviour
             sr.sprite = sr_arr[0];
         }
 
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //moveDisabled = true;
-        Debug.Log($"hero enter {collision.bounds}");
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        //moveDisabled = false;
-        Debug.Log("hero exit");
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5249333834523921781}
   - component: {fileID: 680728273873679030}
   - component: {fileID: 3143228836902984346}
+  - component: {fileID: 3114877940238490098}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2054940120, guid: 5756d08dfe182c14d84056dd28976f0e, type: 3}
+  m_Sprite: {fileID: 1433558221, guid: 5756d08dfe182c14d84056dd28976f0e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -113,7 +114,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &680728273873679030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +128,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  moveDisabled: 0
+  movement: {x: 0, y: 0}
+  sr_arr:
+  - {fileID: 1433558221, guid: 5756d08dfe182c14d84056dd28976f0e, type: 3}
+  - {fileID: -1533509445, guid: 5756d08dfe182c14d84056dd28976f0e, type: 3}
+  - {fileID: -2054940120, guid: 5756d08dfe182c14d84056dd28976f0e, type: 3}
+  - {fileID: 966276595, guid: 5756d08dfe182c14d84056dd28976f0e, type: 3}
 --- !u!61 &3143228836902984346
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -156,7 +164,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.00019931793, y: 0.00944376}
@@ -172,3 +180,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9976311, y: 1.0006497}
   m_EdgeRadius: 0
+--- !u!114 &3114877940238490098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8919565136853314262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 324026fdf0f12fe4d88d523558f9e87f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KEY_Y: 10
+  KEY_R: 1
+  KEY_B: 1
+  Level: 1
+  Health: 1000
+  Attack: 10
+  Defense: 10
+  Coin: 0
+  Exp: 0

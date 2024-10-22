@@ -1,24 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class Fairy : MonoBehaviour
+public class textFade : MonoBehaviour
 {
+    public TextMeshProUGUI textGUI;
+    public float timeStemp = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log($"{Global.Instance.Attack}");
+        textGUI = GetComponent<TextMeshProUGUI>();
+
+        //Debug.Log($"1111:{textGUI}{textGUI.text}");
     }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Global.Instance.isPaused = true;
-        Debug.Log("fairy coll enter");
     }
 }

@@ -17,10 +17,21 @@ public class Global : MonoBehaviour
     public int Defense = 10;
     public int Coin = 0;
     public int Exp = 0;
+    public bool isPaused = false;
+
 
     private void Awake()
     {
-        _instance = this;
+        // 如果没有实例，赋值为当前实例
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);  // 保证在场景切换时不销毁
+        }
+        else
+        {
+            Destroy(gameObject);  // 如果已经有实例，销毁新的实例
+        }
     }
 
     public static Global Instance

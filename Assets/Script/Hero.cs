@@ -64,10 +64,10 @@ public class Hero : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collision");
+        
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        Debug.Log("coll exit");
+        
     }
 }

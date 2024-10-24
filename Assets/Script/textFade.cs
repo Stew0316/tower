@@ -7,12 +7,12 @@ using UnityEngine;
 public class textFade : MonoBehaviour
 {
     public TextMeshProUGUI textGUI;
-    public float timeStemp = 1.5f;
+    public float timeStemp = 6.0f;
     private bool up = false;
     // Start is called before the first frame update
     void Start()
     {
-        textGUI = GetComponent<TextMeshProUGUI>();
+        
     }
 
     // Update is called once per frame

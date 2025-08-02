@@ -11,14 +11,14 @@ public class Global : MonoBehaviour
     public int KEY_Y = 10;
     public int KEY_R = 1;
     public int KEY_B = 1;
-    public int Level = 1;
+    public int Level = -1;
     public int Health = 1000;
     public int Attack = 10;
     public int Defense = 10;
     public int Coin = 0;
     public int Exp = 0;
     public bool isPaused = false;
-
+    public string Level_Name = "Ğò ÕÂ";
 
     private void Awake()
     {

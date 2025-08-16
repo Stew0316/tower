@@ -1,19 +1,19 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class FadeManager : MonoBehaviour
 {
-    public Image fadeImage;       // ºÚÉ«ÕÚÕÖ
-    public float fadeDuration = .6f;  // µ­Èëµ­³ö³ÖĞøÊ±¼ä
+    public Image fadeImage;       // é»‘è‰²é®ç½©
+    public float fadeDuration = .6f;  // æ·¡å…¥æ·¡å‡ºæŒç»­æ—¶é—´
 
     private void Start()
     {
         StartCoroutine(FadeIn());
     }
 
-    // µ­ÈëĞ§¹û
+    // æ·¡å…¥æ•ˆæœ
     public IEnumerator FadeIn()
     {
         float elapsedTime = 0f;
@@ -31,7 +31,7 @@ public class FadeManager : MonoBehaviour
         fadeImage.color = color;
     }
 
-    // µ­³öĞ§¹û²¢ÇĞ»»³¡¾°
+    // æ·¡å‡ºæ•ˆæœå¹¶åˆ‡æ¢åœºæ™¯
     public IEnumerator FadeOut(string sceneName)
     {
         float elapsedTime = 0f;
@@ -48,7 +48,7 @@ public class FadeManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    // µ÷ÓÃÇĞ»»³¡¾°µÄµ­³ö
+    // è°ƒç”¨åˆ‡æ¢åœºæ™¯çš„æ·¡å‡º
     public void StartFadeOut(string sceneName)
     {
         StartCoroutine(FadeOut(sceneName));

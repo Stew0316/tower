@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
@@ -40,13 +40,13 @@ public class Fairy : MonoBehaviour
                     dialog1.SetActive(false);
                     dialog2.SetActive(true);
                 }
-                if(spaceCount == 1)
+                if (spaceCount == 1)
                 {
                     textHero.text = (string)heroDialogues[0];
                     dialog1.SetActive(true);
                     dialog2.SetActive(false);
                 }
-                if(spaceCount == 2)
+                if (spaceCount == 2)
                 {
                     textFairy.text = (string)fairyDialog[0];
                     dialog1.SetActive(false);
@@ -64,7 +64,7 @@ public class Fairy : MonoBehaviour
                     dialog1.SetActive(false);
                     dialog2.SetActive(true);
                 }
-                if(spaceCount >=5)
+                if (spaceCount >= 5)
                 {
 
                     dialogEnd();

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,20 +8,19 @@ public class UpFloor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(Global.Instance.Level_Name);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         FadeManager fadeManager = FindObjectOfType<FadeManager>();
         fadeManager.StartFadeOut("level-2");
+        //Global.Instance.Level++;
         string sceneName = SceneManager.GetActiveScene().name;
-        Debug.Log("µ±Ç°³¡¾°Ãû³Æ: " + sceneName);
-        Debug.Log("Ó¢ÐÛÉý²ã");
     }
 }

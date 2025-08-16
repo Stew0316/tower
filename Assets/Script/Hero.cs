@@ -1,36 +1,37 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Key;
 
 public class Hero : MonoBehaviour
 {
-    public float speed = 5f; // ÒÆ¶¯ËÙ¶È
+    public float speed = 5f; // ç§»åŠ¨é€Ÿåº¦
     private Rigidbody2D rb;
     public bool moveDisabled = false;
     public Vector2 movement;
 
     private SpriteRenderer sr;
-    //ÉÏÓÒÏÂ×óµÄ·½Ïò
+    //ä¸Šå³ä¸‹å·¦çš„æ–¹å‘
     public Sprite[] sr_arr;
 
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-    } 
+    }
 
     void Start()
     {
-        
+
     }
 
     void FixedUpdate()
     {
-        //// »ñÈ¡ÊäÈë
+        //// è·å–è¾“å…¥
         //float moveX = Input.GetAxis("Horizontal");
         //float moveY = Input.GetAxis("Vertical");
 
-        //// ¼ÆËãÒÆ¶¯Á¿
+        //// è®¡ç®—ç§»åŠ¨é‡
         //movement = new Vector2(moveX, moveY) * speed * Time.fixedDeltaTime;
         ////Debug.Log($"{movement}, {movement[0]}, {movement[1]}");
         //if(!moveDisabled)
@@ -40,11 +41,11 @@ public class Hero : MonoBehaviour
         if (Global.Instance.isPaused) return;
         float h = Input.GetAxisRaw("Horizontal");
         transform.Translate(Vector3.right * h * speed * Time.deltaTime, Space.World);
-        if(h<0)
+        if (h < 0)
         {
-            sr.sprite = sr_arr[3]; 
+            sr.sprite = sr_arr[3];
         }
-        else if(h>0)
+        else if (h > 0)
         {
             sr.sprite = sr_arr[1];
         }
@@ -64,10 +65,18 @@ public class Hero : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        Key key = collision.gameObject.GetComponent<Key>();
+        if (key != null)
+        {
+            // è®¿é—® keytype å±æ€§
+            KeyType keyType = key.keyType;
+            //Debug.Log("è·å–åˆ°çš„ keytype: " + keyType);
+        }
+        //Debug.Log($"è§¦å‘{collision}");
+        //Debug.Log($"KeyType{collision.KeyType}");
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        
+
     }
 }

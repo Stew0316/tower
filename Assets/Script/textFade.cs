@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 using TMPro;
@@ -12,13 +12,13 @@ public class textFade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(up)
+        if (up)
         {
             textGUI.alpha = textGUI.alpha + (Time.fixedDeltaTime * timeStemp);
         }
@@ -26,11 +26,11 @@ public class textFade : MonoBehaviour
         {
             textGUI.alpha = textGUI.alpha - (Time.fixedDeltaTime * timeStemp);
         }
-        if(textGUI.alpha >= 1.0f)
+        if (textGUI.alpha >= 1.0f)
         {
             up = false;
         }
-        else if(textGUI.alpha <= 0.0f)
+        else if (textGUI.alpha <= 0.0f)
         {
             up = true;
         }

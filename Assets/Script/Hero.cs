@@ -65,15 +65,16 @@ public class Hero : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Key key = collision.gameObject.GetComponent<Key>();
-        if (key != null)
+
+        string tag = collision.gameObject.tag;
+        if (tag == "Enemy")
         {
-            // 访问 keytype 属性
-            KeyType keyType = key.keyType;
-            //Debug.Log("获取到的 keytype: " + keyType);
+            Enemy enemyScript = collision.gameObject.GetComponent<Enemy>();
+            if (enemyScript != null)
+            {
+                Debug.Log($"怪物攻击{enemyScript.EnemyAttak}");
+            }
         }
-        //Debug.Log($"触发{collision}");
-        //Debug.Log($"KeyType{collision.KeyType}");
     }
     private void OnCollisionExit2D(Collision2D collision)
     {

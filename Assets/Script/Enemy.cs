@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public int EnemyDefense = 1;
     public int EnemyCoin = 1;
     public int EnemyExp = 1;
+    public int EnemyHP = 1000;
     // Start is called before the first frame update
     void Start()
     {

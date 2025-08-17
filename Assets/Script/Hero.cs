@@ -5,6 +5,7 @@ using static Key;
 
 public class Hero : MonoBehaviour
 {
+    public PopupLayer fightMask;
     public float speed = 5f; // 移动速度
     private Rigidbody2D rb;
     public bool moveDisabled = false;
@@ -72,7 +73,8 @@ public class Hero : MonoBehaviour
             Enemy enemyScript = collision.gameObject.GetComponent<Enemy>();
             if (enemyScript != null)
             {
-                Debug.Log($"怪物攻击{enemyScript.EnemyAttak}");
+
+                fightMask.Init(collision.gameObject, enemyScript.EnemyAttak.ToString(), enemyScript.EnemyDefense.ToString(), Global.Instance.Attack.ToString(), Global.Instance.Defense.ToString(), enemyScript.EnemyHP, Global.Instance.Health);
             }
         }
     }

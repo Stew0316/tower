@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c617afda53f18594dba5cefb43f68276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fightMask: {fileID: 0}
   speed: 5
   moveDisabled: 0
   movement: {x: 0, y: 0}
@@ -167,7 +168,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00016373396, y: 0.003768444}
+  m_Offset: {x: 0.0034880042, y: 0.017224729}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -178,7 +179,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9800805, y: 0.98929906}
+  m_Size: {x: 0.94240415, y: 0.9309882}
   m_EdgeRadius: 0
 --- !u!114 &3114877940238490098
 MonoBehaviour:
@@ -214,33 +215,17 @@ MonoBehaviour:
   uiBindings:
   - statType: 0
     text: {fileID: 0}
-    prefix: 
-    suffix: 
   - statType: 2
     text: {fileID: 0}
-    prefix: 
-    suffix: 
   - statType: 1
     text: {fileID: 0}
-    prefix: 
-    suffix: 
   - statType: 4
     text: {fileID: 0}
-    prefix: 
-    suffix: 
   - statType: 5
     text: {fileID: 0}
-    prefix: 
-    suffix: 
   - statType: 6
     text: {fileID: 0}
-    prefix: 
-    suffix: 
   - statType: 7
     text: {fileID: 0}
-    prefix: 
-    suffix: 
   - statType: 8
     text: {fileID: 0}
-    prefix: 
-    suffix: 

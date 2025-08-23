@@ -21,6 +21,8 @@ public class KeyCollisionPlay : MonoBehaviour
         {
             return;
         }
+        float distance = Vector2.Distance(transform.position, collision.transform.position);
+        Debug.Log($"door distance {distance}");
         bool check = Global.Instance.CheckOpenDoor(doorType);
         if (!check) return;
         // 播放动画

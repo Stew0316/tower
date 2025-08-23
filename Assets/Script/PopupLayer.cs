@@ -2,6 +2,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class PopupLayer : MonoBehaviour
 {
@@ -25,8 +26,15 @@ public class PopupLayer : MonoBehaviour
     private Coroutine playCoroutine;
 
     private Animator collisionAnimator;  // collision对象动画（可选保留）
+
     private float enemyHP;
     private float HeroHP;
+    private float enemyAttackValue;
+    private float enemyDefenseValue;
+    private float heroAttackValue;
+    private float heroDefenseValue;
+
+    private GameObject EnemyObject;
 
     private void Awake()
     {
@@ -35,11 +43,19 @@ public class PopupLayer : MonoBehaviour
 
     public void Init(GameObject collisionObj, string enemyAttack, string enemyDefense, string heroAttack, string heroDefense, float enemyHPValue, float heroHPValue)
     {
+        EnemyObject = collisionObj;
+
         // ---- 你的原 UI 赋值 ----
         if (enemyAtt != null) enemyAtt.text = enemyAttack;
         if (enemyDef != null) enemyDef.text = enemyDefense;
         if (heroAtt != null) heroAtt.text = heroAttack;
         if (heroDef != null) heroDef.text = heroDefense;
+
+        enemyAttackValue = float.Parse(enemyAttack);
+        enemyDefenseValue = float.Parse(enemyDefense);
+        heroAttackValue = float.Parse(heroAttack);
+        heroDefenseValue = float.Parse(heroDefense);
+
         PopupChange(true);
 
         enemyHP = enemyHPValue;
@@ -96,9 +112,7 @@ public class PopupLayer : MonoBehaviour
                 playCoroutine = StartCoroutine(PlaySpriteFrames(provider.frames));
             }
         }
-
-        // 检查是否需要立即关闭
-        CheckClose();
+        StartCoroutine(StartFight());
     }
 
     public void UpdateDynamicValues(float enemyHPValue, float heroHPValue)
@@ -106,8 +120,50 @@ public class PopupLayer : MonoBehaviour
         enemyHP = enemyHPValue;
         HeroHP = heroHPValue;
         UpdateDynamicUI();
-        CheckClose();
+
     }
+
+    private IEnumerator StartFight()
+    {
+        Global.Instance.isPaused = true;
+
+        // 战斗循环，每 0.5 秒打一回合
+        while (enemyHP > 0 && HeroHP > 0)
+        {
+            // 双方攻击一次
+            enemyHP -= (heroAttackValue - enemyDefenseValue);
+
+
+            // 最后一次hp变成0
+            if (enemyHP < 0)
+            {
+                enemyHP = 0;
+            }
+            else
+            {
+                HeroHP -= (enemyAttackValue - heroDefenseValue);
+            }
+            UpdateDynamicValues(enemyHP, HeroHP);
+
+            // 等待 0.5 秒再继续下一次攻击
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        // 战斗结束
+        FightEnd();
+    }
+
+    private void FightEnd()
+    {
+        Global.Instance.isPaused = false;
+        PopupChange(false);
+        Enemy enemyScript = EnemyObject.GetComponent<Enemy>();
+        Global.Instance.Exp += enemyScript.EnemyExp;
+        Global.Instance.Coin += enemyScript.EnemyCoin;
+        Global.Instance.Health = (int)HeroHP;
+        enemyScript.EnemyDestroy();
+    }
+
 
     private void UpdateDynamicUI()
     {
@@ -115,13 +171,6 @@ public class PopupLayer : MonoBehaviour
         if (HeroHPText != null) HeroHPText.text = HeroHP.ToString();
     }
 
-    private void CheckClose()
-    {
-        if (enemyHP < 0 || HeroHP < 0)
-        {
-            PopupChange(false);
-        }
-    }
 
     private void PopupChange(bool status = false)
     {
@@ -129,11 +178,11 @@ public class PopupLayer : MonoBehaviour
         gameObject.SetActive(status);
 
         // 关闭时清理
-        if (!status)
-        {
-            if (spawnedVisual != null) Destroy(spawnedVisual);
-            if (playCoroutine != null) { StopCoroutine(playCoroutine); playCoroutine = null; }
-        }
+        //if (!status)
+        //{
+        //    if (spawnedVisual != null) Destroy(spawnedVisual);
+        //    if (playCoroutine != null) { StopCoroutine(playCoroutine); playCoroutine = null; }
+        //}
     }
 
     private IEnumerator PlaySpriteFrames(Sprite[] frames)

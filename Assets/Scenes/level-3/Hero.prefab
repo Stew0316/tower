@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7389295900650515546
+--- !u!1 &8919565136853314262
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6108935753792078201}
-  - component: {fileID: 2203659630300885942}
-  - component: {fileID: 8304504050359467896}
-  - component: {fileID: 8943108709055229834}
-  - component: {fileID: 8175021533560127404}
+  - component: {fileID: 6803801915773526619}
+  - component: {fileID: 7598233276009742346}
+  - component: {fileID: 5249333834523921781}
+  - component: {fileID: 680728273873679030}
+  - component: {fileID: 3143228836902984346}
+  - component: {fileID: 3114877940238490098}
   m_Layer: 0
-  m_Name: Enemy
-  m_TagString: Enemy
+  m_Name: Hero
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6108935753792078201
+--- !u!4 &6803801915773526619
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7389295900650515546}
+  m_GameObject: {fileID: 8919565136853314262}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: -2.5, z: 0}
+  m_LocalPosition: {x: 2.5, y: -0.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2203659630300885942
+--- !u!212 &7598233276009742346
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7389295900650515546}
+  m_GameObject: {fileID: 8919565136853314262}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
-  m_Sprite: {fileID: -1001920288, guid: ca689aa8bf7764640bd163387b007a44, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 1433558221, guid: 1e6d6ce5e359fa84f8319148aac8b960, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,51 +88,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &8304504050359467896
-Animator:
-  serializedVersion: 5
+--- !u!50 &5249333834523921781
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7389295900650515546}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f13a4bc067db11643804f57fd3818166, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8943108709055229834
+  m_GameObject: {fileID: 8919565136853314262}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &680728273873679030
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7389295900650515546}
+  m_GameObject: {fileID: 8919565136853314262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05600e4fcf779d44b91527d608e81d70, type: 3}
+  m_Script: {fileID: 11500000, guid: c617afda53f18594dba5cefb43f68276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyAttak: 20
-  EnemyDefense: 1
-  EnemyCoin: 1
-  EnemyExp: 1
-  EnemyHP: 1000
---- !u!61 &8175021533560127404
+  fightMask: {fileID: 0}
+  speed: 5
+  moveDisabled: 0
+  movement: {x: 0, y: 0}
+  sr_arr:
+  - {fileID: 1433558221, guid: 1e6d6ce5e359fa84f8319148aac8b960, type: 3}
+  - {fileID: -1533509445, guid: 1e6d6ce5e359fa84f8319148aac8b960, type: 3}
+  - {fileID: -2054940120, guid: 1e6d6ce5e359fa84f8319148aac8b960, type: 3}
+  - {fileID: 966276595, guid: 1e6d6ce5e359fa84f8319148aac8b960, type: 3}
+--- !u!61 &3143228836902984346
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7389295900650515546}
+  m_GameObject: {fileID: 8919565136853314262}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -157,7 +168,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.00019931793, y: 0.00944376}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -168,5 +179,37 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9976311, y: 1.0006497}
   m_EdgeRadius: 0
+--- !u!114 &3114877940238490098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8919565136853314262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 324026fdf0f12fe4d88d523558f9e87f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPaused: 0
+  keyYellow:
+    _value: 0
+  keyRed:
+    _value: 1
+  keyBlue:
+    _value: 1
+  level:
+    _value: -1
+  health:
+    _value: 1000
+  attack:
+    _value: 10
+  defense:
+    _value: 10
+  coin:
+    _value: 0
+  exp:
+    _value: 0
+  uiBindings: []

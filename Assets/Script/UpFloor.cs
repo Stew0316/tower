@@ -19,8 +19,10 @@ public class UpFloor : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         FadeManager fadeManager = FindObjectOfType<FadeManager>();
-        fadeManager.StartFadeOut("level-2");
-        //Global.Instance.Level++;
         string sceneName = SceneManager.GetActiveScene().name;
+        string level = sceneName.Split('-')[1];
+        int levelVal = int.Parse(level);
+        Global.Instance.LevelValue++;
+        fadeManager.StartFadeOut($"level-{levelVal + 1}");
     }
 }

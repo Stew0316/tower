@@ -24,4 +24,8 @@ public class Enemy : MonoBehaviour
     {
 
     }
+    public void EnemyDestroy()
+    {
+        GameObject.Destroy(gameObject);
+    }
 }

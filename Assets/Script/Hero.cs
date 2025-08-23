@@ -73,7 +73,7 @@ public class Hero : MonoBehaviour
             Enemy enemyScript = collision.gameObject.GetComponent<Enemy>();
             if (enemyScript != null)
             {
-
+                Debug.Log($"{enemyScript.EnemyDefense}");
                 fightMask.Init(collision.gameObject, enemyScript.EnemyAttak.ToString(), enemyScript.EnemyDefense.ToString(), Global.Instance.Attack.ToString(), Global.Instance.Defense.ToString(), enemyScript.EnemyHP, Global.Instance.Health);
             }
         }
